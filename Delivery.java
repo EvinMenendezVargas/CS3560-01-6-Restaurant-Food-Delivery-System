@@ -46,4 +46,10 @@ public class Delivery {
 		this.deliveryLocation = deliveryLocation;
 	}
 	
+	public String trackStatus(String deliveryStatus) {
+		String status;
+		status = deliveryStatus;
+		return status;
+	}
+	
 }
