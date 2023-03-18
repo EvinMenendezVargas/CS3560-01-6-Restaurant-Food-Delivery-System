@@ -36,4 +36,10 @@ public class Menu {
 		this.foodPrice = foodPrice;
 	}
 	
+	public void editMenu(String foodName, int ID, double foodPrice) {
+		
+		// this method lets the admin/staff edit the changes in menu
+		
+	}
+	
 }
