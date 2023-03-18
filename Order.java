@@ -30,5 +30,27 @@ public class Order {
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
+	
+	public String track(String orderStatus) {
+		String status; 
+		status = orderStatus;
+		return status;
+	}
+	public String placeOrder(String orderItems) {
+		String orderList;
+		// builds a list of items that needs to get ordered
+		// return tat order list
+	return orderList;
+	}
+	
+	public void addItem() {
+		
+		// this method adds items for the order
+	}
+	
+	public void removeItem() {
+		
+		// this method removes items from the order
+	}
 
 }
