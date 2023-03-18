@@ -73,5 +73,13 @@ public class Order {
 		
 		// this method removes items from the order
 	}
+	
+	public String sendOrder(String send) {
+		String sendFinalOrder;
+		
+		// this method sends the order to the restaurant kitchen to be made
+		
+	return sendFinalOrder;
+	}
 
 }
