@@ -38,4 +38,10 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 	
+	public void makeOrderPayment() {
+		
+		// gets card info and pays for the order
+		
+	}
+	
 }
