@@ -46,5 +46,19 @@ public class Driver {
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
+	
+	public String assignDriver(String availability) {
+		String driver;
+		
+		// finds a driver who is free
+		// this method returns a name 
+		
+		return driver;
+	}
+	
+	public void recordDelivery() {
+		
+		// this method records the details of the delivery
+		
+	}
 }
