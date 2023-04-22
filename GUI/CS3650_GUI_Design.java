@@ -39,7 +39,8 @@ public class CS3650_GUI_Design extends Application
 	public Label foodName = new Label("Food Item");
 	public Label foodPrice = new Label("$ Price");
 	public Label foodDesc = new Label("Item Description");
-	public Label total = new Label("Total Charge: ");
+	public Label subTotal = new Label("Subtotal: ");
+	public Label totalCharge = new Label("$ Total: ");
 	
 	public ChoiceBox<String> appetizers = new ChoiceBox<>();
 	public ChoiceBox<String> entrees = new ChoiceBox<>();
@@ -65,11 +66,11 @@ public class CS3650_GUI_Design extends Application
 	    	Image food = new Image("C:\\Users\\Menen\\Downloads\\1579893.jpg");
 	    	ImageView view = new ImageView(food);
 	    	
-	    	Image cart = new Image("C:\\Users\\Menen\\Downloads\\344013-200.png");
-	    	ImageView view1 = new ImageView(cart);
+	    	Image threebar = new Image("C:\\Users\\Menen\\Downloads\\344013-200.png");
+	    	ImageView view1 = new ImageView(threebar);
 	    	
-	    	Image threeBar = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1206806317-612x612.jpg");
-	    	ImageView view2 = new ImageView(threeBar);
+	    	Image cart = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1206806317-612x612.jpg");
+	    	ImageView view2 = new ImageView(cart);
 	    	
 	    	view.setFitWidth(100);
 			view.setFitHeight(100);
@@ -137,19 +138,39 @@ public class CS3650_GUI_Design extends Application
 	    	
 	    	addButton.setOnAction(event5 -> 
 	    	{
-	    		HBox forwardBack = new HBox(25, backButton, payButton);
-	    		forwardBack.setPadding(new Insets(10));
-	    		forwardBack.setAlignment(Pos.TOP_CENTER);
+	    		Image cart1 = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1201806395-612x612.jpg");
+		    	ImageView view3 = new ImageView(cart1);
+		    	view3.setFitWidth(50);
+				view3.setFitHeight(50);
+		    	
+		    	HBox menuBar1 = new HBox(250, view1, nameTitle, view3);
+				menuBar1.setAlignment(Pos.TOP_CENTER);
+				
+				VBox menuBox1 = new VBox(25, menuBar1, menuTitle, appetizerTitle, gridpane, entreeTitle);
+		    	menuBox1.setPadding(new Insets(10));
+		    	menuBox1.setAlignment(Pos.TOP_CENTER);
+		    	
+		    	Scene scene4 = new Scene(menuBox1, 900, 900);
+		    	primaryStage.setScene(scene4);
+		    	primaryStage.show();
 	    		
-	    		VBox orderTab1 = new VBox(25, orderTitle, gridpane, forwardBack);
-	    		orderTab1.setPadding(new Insets(10));
-	    		orderTab1.setAlignment(Pos.TOP_CENTER);
+		    	view3.setOnMouseClicked(event7 -> 
+		    	{
+		    		HBox forwardBack = new HBox(25, backButton, payButton);
+		    		forwardBack.setPadding(new Insets(10));
+		    		forwardBack.setAlignment(Pos.TOP_CENTER);
+		    		
+		    		VBox orderTab1 = new VBox(25, orderTitle, gridpane, forwardBack);
+		    		orderTab1.setPadding(new Insets(10));
+		    		orderTab1.setAlignment(Pos.TOP_CENTER);
 
-	    	
-	    		Scene scene3 = new Scene(orderTab1, 900, 900);
-	    		primaryStage.setScene(scene3);
-	    		primaryStage.show();
-	    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+		    	
+		    		Scene scene3 = new Scene(orderTab1, 900, 900);
+		    		primaryStage.setScene(scene3);
+		    		primaryStage.show();
+		    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+		    		
+		    	});
 	    	
 	    	});
 	    });
