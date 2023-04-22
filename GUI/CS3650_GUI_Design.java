@@ -59,25 +59,25 @@ public class CS3650_GUI_Design extends Application
 		primaryStage.setTitle("Restaurant Name");
 		primaryStage.show();
 		
-	    orderButton.setOnAction(event -> 
+	    orderButton.setOnAction(showMenuScene -> 
 	    {
 	    	orderButton.setVisible(false); resTitle.setVisible(false);
 	    	
 	    	Image food = new Image("C:\\Users\\Menen\\Downloads\\1579893.jpg");
-	    	ImageView view = new ImageView(food);
+	    	ImageView foodImage = new ImageView(food);
 	    	
 	    	Image threebar = new Image("C:\\Users\\Menen\\Downloads\\344013-200.png");
-	    	ImageView view1 = new ImageView(threebar);
+	    	ImageView threebarImage = new ImageView(threebar);
 	    	
 	    	Image cart = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1206806317-612x612.jpg");
-	    	ImageView view2 = new ImageView(cart);
+	    	ImageView cartImage = new ImageView(cart);
 	    	
-	    	view.setFitWidth(100);
-			view.setFitHeight(100);
-			view1.setFitWidth(50);
-			view1.setFitHeight(50);
-			view2.setFitWidth(50);
-			view2.setFitHeight(50);
+	    	foodImage.setFitWidth(100);
+			foodImage.setFitHeight(100);
+			threebarImage.setFitWidth(50);
+			threebarImage.setFitHeight(50);
+			cartImage.setFitWidth(50);
+			cartImage.setFitHeight(50);
 	    	
 	    	GridPane gridpane = new GridPane();
 			gridpane.setPadding(new Insets(10));
@@ -89,7 +89,7 @@ public class CS3650_GUI_Design extends Application
 			
 			countField.setPrefSize(30, 30);
 			
-			minusButton.setOnAction(event1 -> {value = Integer.parseInt(countField.getText());
+			minusButton.setOnAction(removeItem -> {value = Integer.parseInt(countField.getText());
 			if(value <= 0)
 			{
 				countField.setText(Integer.toString(value + 0));
@@ -99,62 +99,72 @@ public class CS3650_GUI_Design extends Application
 				countField.setText(Integer.toString(value - 1));
 			}});
 			
-			plusButton.setOnAction(event2 -> {value = Integer.parseInt(countField.getText());
+			plusButton.setOnAction(addItem -> {value = Integer.parseInt(countField.getText());
 			countField.setText(Integer.toString(value + 1));});
 			
+            // Set up intro scene display
 			HBox nameBox = new HBox(30, foodName, foodPrice);
 			HBox addingMinus = new HBox(minusButton, countField, plusButton);
 			HBox buttonsBox = new HBox (30, addingMinus, addButton);
 			VBox descriptionBox = new VBox(10, nameBox, foodDesc, buttonsBox);
-			HBox foodBox = new HBox(10, view, descriptionBox);
+			HBox foodBox = new HBox(10, foodImage, descriptionBox);
 			
-			HBox menuBar = new HBox(250, view1, nameTitle, view2);
+            // Create a menu bar to be placed at the top
+			HBox menuBar = new HBox(250, threebarImage, nameTitle, cartImage);
 			menuBar.setAlignment(Pos.TOP_CENTER);
 			
 			gridpane.add(foodBox, 2, 1);
 			gridpane.setAlignment(Pos.CENTER);
 		
+            // Set menu box with food categories under the menu bar
 	    	VBox menuBox = new VBox(25, menuBar, menuTitle, appetizerTitle, gridpane, entreeTitle);
 	    	menuBox.setPadding(new Insets(10));
 	    	menuBox.setAlignment(Pos.TOP_CENTER);
 	    
-	    	Scene scene1 = new Scene(menuBox, 900, 900);
-	    	primaryStage.setScene(scene1);
+            // Create scene for menu scene
+	    	Scene menuScene = new Scene(menuBox, 900, 900);
+	    	primaryStage.setScene(menuScene);
 	    	primaryStage.show();
 	    	
-	    	view1.setOnMouseClicked(event3 -> {view1.setScaleX(0.10);});
-	    	view2.setOnMouseClicked(event4 -> 
+            // Shows 3 bars/menu bar which will go to the home page when clicked (not implemented yet)
+	    	threebarImage.setOnMouseClicked(goToHome -> {threebarImage.setScaleX(0.10);});
+            // Shows cart image, goes to show order when clicked
+	    	cartImage.setOnMouseClicked(cartClicked -> 
 	    	{
 	    		VBox orderTab = new VBox(25, orderTitle, backButton);
 	    		orderTab.setPadding(new Insets(10));
 	    		orderTab.setAlignment(Pos.TOP_CENTER);
 	    	
-	    		Scene scene2 = new Scene(orderTab, 900, 900);
-	    		primaryStage.setScene(scene2);
+                // When cart is clicked when empty, shows order with nothing
+	    		Scene emptyOrder = new Scene(orderTab, 900, 900);
+	    		primaryStage.setScene(emptyOrder);
 	    		primaryStage.show();
-	    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+                // go back to menuScene when back button is pressed
+	    		backButton.setOnAction(backToMenu -> {primaryStage.setScene(menuScene);});
 	    		
 	    	});
 	    	
 	    	addButton.setOnAction(event5 -> 
 	    	{
 	    		Image cart1 = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1201806395-612x612.jpg");
-		    	ImageView view3 = new ImageView(cart1);
-		    	view3.setFitWidth(50);
-				view3.setFitHeight(50);
+		    	// Shows cart with notification
+                ImageView cartNotif = new ImageView(cart1);
+		    	cartNotif.setFitWidth(50);
+				cartNotif.setFitHeight(50);
 		    	
-		    	HBox menuBar1 = new HBox(250, view1, nameTitle, view3);
+		    	HBox menuBar1 = new HBox(250, threebarImage, nameTitle, cartNotif);
 				menuBar1.setAlignment(Pos.TOP_CENTER);
 				
 				VBox menuBox1 = new VBox(25, menuBar1, menuTitle, appetizerTitle, gridpane, entreeTitle);
 		    	menuBox1.setPadding(new Insets(10));
 		    	menuBox1.setAlignment(Pos.TOP_CENTER);
 		    	
+                // Updates cart after pressing add to order. Shows cart with notification
 		    	Scene scene4 = new Scene(menuBox1, 900, 900);
 		    	primaryStage.setScene(scene4);
 		    	primaryStage.show();
 	    		
-		    	view3.setOnMouseClicked(event7 -> 
+		    	cartNotif.setOnMouseClicked(event7 -> 
 		    	{
 		    		HBox forwardBack = new HBox(25, backButton, payButton);
 		    		forwardBack.setPadding(new Insets(10));
@@ -164,11 +174,11 @@ public class CS3650_GUI_Design extends Application
 		    		orderTab1.setPadding(new Insets(10));
 		    		orderTab1.setAlignment(Pos.TOP_CENTER);
 
-		    	
-		    		Scene scene3 = new Scene(orderTab1, 900, 900);
-		    		primaryStage.setScene(scene3);
+                    // When cart is clicked with an item, it shows next scene with ordered item
+		    		Scene order = new Scene(orderTab1, 900, 900);
+		    		primaryStage.setScene(order);
 		    		primaryStage.show();
-		    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+		    		backButton.setOnAction(event6 -> {primaryStage.setScene(menuScene);});
 		    		
 		    	});
 	    	
