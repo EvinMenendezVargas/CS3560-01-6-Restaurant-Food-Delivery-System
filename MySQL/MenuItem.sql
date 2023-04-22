@@ -16,4 +16,4 @@ CREATE TABLE `menuItem` (
 )
 
 -- example value
-INSERT INTO delivery VALUES(1, 'Pizza', '12.00', 2);
+INSERT INTO menuItem VALUES(1, 'Pizza', '12.00', 2);
