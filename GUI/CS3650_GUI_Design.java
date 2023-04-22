@@ -23,6 +23,8 @@ public class CS3650_GUI_Design extends Application
 	public Button addButton = new Button("Add to Order");
 	public Button plusButton = new Button("+");
 	public Button minusButton = new Button("-");
+	public Button backButton = new Button("Back");
+	public Button payButton = new Button("Pay Now");
 	
 	public TextField countField = new TextField("0");
 	
@@ -31,6 +33,7 @@ public class CS3650_GUI_Design extends Application
 	public Label resTitle = new Label("Welcome to Tony's Ponies!");
 	public Label nameTitle = new Label("Tony's Ponies");
 	public Label menuTitle = new Label("MENU");
+	public Label orderTitle = new Label("Your Order");
 	public Label appetizerTitle = new Label("Appetizers");
 	public Label entreeTitle = new Label("Entrees");
 	public Label foodName = new Label("Food Item");
@@ -58,10 +61,22 @@ public class CS3650_GUI_Design extends Application
 	    orderButton.setOnAction(event -> 
 	    {
 	    	orderButton.setVisible(false); resTitle.setVisible(false);
-	    	Image image = new Image("C:\\Users\\Menen\\Downloads\\1579893.jpg");
-	    	ImageView view = new ImageView(image);
+	    	
+	    	Image food = new Image("C:\\Users\\Menen\\Downloads\\1579893.jpg");
+	    	ImageView view = new ImageView(food);
+	    	
+	    	Image cart = new Image("C:\\Users\\Menen\\Downloads\\344013-200.png");
+	    	ImageView view1 = new ImageView(cart);
+	    	
+	    	Image threeBar = new Image("C:\\Users\\Menen\\Downloads\\istockphoto-1206806317-612x612.jpg");
+	    	ImageView view2 = new ImageView(threeBar);
+	    	
 	    	view.setFitWidth(100);
 			view.setFitHeight(100);
+			view1.setFitWidth(50);
+			view1.setFitHeight(50);
+			view2.setFitWidth(50);
+			view2.setFitHeight(50);
 	    	
 	    	GridPane gridpane = new GridPane();
 			gridpane.setPadding(new Insets(10));
@@ -87,13 +102,13 @@ public class CS3650_GUI_Design extends Application
 			countField.setText(Integer.toString(value + 1));});
 			
 			HBox nameBox = new HBox(30, foodName, foodPrice);
-			HBox addingBox = new HBox(minusButton, countField, plusButton);
-			HBox buttonsBox = new HBox (30, addingBox, addButton);
+			HBox addingMinus = new HBox(minusButton, countField, plusButton);
+			HBox buttonsBox = new HBox (30, addingMinus, addButton);
 			VBox descriptionBox = new VBox(10, nameBox, foodDesc, buttonsBox);
 			HBox foodBox = new HBox(10, view, descriptionBox);
 			
-			HBox menuBar = new HBox(20, nameTitle);
-			menuBar.setAlignment(Pos.TOP_LEFT);
+			HBox menuBar = new HBox(250, view1, nameTitle, view2);
+			menuBar.setAlignment(Pos.TOP_CENTER);
 			
 			gridpane.add(foodBox, 2, 1);
 			gridpane.setAlignment(Pos.CENTER);
@@ -105,6 +120,38 @@ public class CS3650_GUI_Design extends Application
 	    	Scene scene1 = new Scene(menuBox, 900, 900);
 	    	primaryStage.setScene(scene1);
 	    	primaryStage.show();
+	    	
+	    	view1.setOnMouseClicked(event3 -> {view1.setScaleX(0.10);});
+	    	view2.setOnMouseClicked(event4 -> 
+	    	{
+	    		VBox orderTab = new VBox(25, orderTitle, backButton);
+	    		orderTab.setPadding(new Insets(10));
+	    		orderTab.setAlignment(Pos.TOP_CENTER);
+	    	
+	    		Scene scene2 = new Scene(orderTab, 900, 900);
+	    		primaryStage.setScene(scene2);
+	    		primaryStage.show();
+	    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+	    		
+	    	});
+	    	
+	    	addButton.setOnAction(event5 -> 
+	    	{
+	    		HBox forwardBack = new HBox(25, backButton, payButton);
+	    		forwardBack.setPadding(new Insets(10));
+	    		forwardBack.setAlignment(Pos.TOP_CENTER);
+	    		
+	    		VBox orderTab1 = new VBox(25, orderTitle, gridpane, forwardBack);
+	    		orderTab1.setPadding(new Insets(10));
+	    		orderTab1.setAlignment(Pos.TOP_CENTER);
+
+	    	
+	    		Scene scene3 = new Scene(orderTab1, 900, 900);
+	    		primaryStage.setScene(scene3);
+	    		primaryStage.show();
+	    		backButton.setOnAction(event6 -> {primaryStage.setScene(scene1);});
+	    	
+	    	});
 	    });
 		
 	}
