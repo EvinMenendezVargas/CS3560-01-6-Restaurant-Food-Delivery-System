@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="806.0" stroke="BLACK" strokeType="INSIDE" width="803.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="72.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Text layoutX="135.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review Order" wrappingWidth="127.0">
+         <font>
+            <Font name="Calibri Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="135.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#   Food Item" wrappingWidth="127.0" />
+      <Text layoutX="270.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ Price" wrappingWidth="118.0" />
+      <Text layoutX="135.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#   Food Item" wrappingWidth="127.0" />
+      <Text layoutX="270.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ Price" wrappingWidth="118.0" />
+      <Text layoutX="135.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#   Food Item" wrappingWidth="127.0" />
+      <Text layoutX="270.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ Price" wrappingWidth="118.0" />
+      <Line endX="375.0" endY="459.5" layoutX="-36.0" layoutY="33.0" startX="125.0" startY="459.5" />
+      <Text layoutX="109.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Total:" wrappingWidth="127.0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="247.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ Total" wrappingWidth="118.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="404.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Information" wrappingWidth="400.0">
+         <font>
+            <Font name="Calibri Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="413.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Address" wrappingWidth="400.0" />
+      <Text layoutX="416.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="firstName lastName" wrappingWidth="400.0" />
+      <Text layoutX="422.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address bar1" wrappingWidth="400.0" />
+      <Text layoutX="427.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number: /t(###) ###-####" wrappingWidth="400.0" />
+      <Text layoutX="415.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address bar2" wrappingWidth="400.0" />
+      <Text layoutX="426.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address bar3" wrappingWidth="400.0" />
+      <Text layoutX="-70.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" textAlignment="CENTER" wrappingWidth="900.0">
+         <font>
+            <Font name="Calibri Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="63.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Holder Name:">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Text>
+      <TextField layoutX="80.0" layoutY="579.0" prefHeight="25.0" prefWidth="630.0" promptText="Name on the card" />
+      <Text layoutX="62.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Text>
+      <TextField layoutX="80.0" layoutY="634.0" prefHeight="25.0" prefWidth="630.0" promptText="Long number on the card" />
+      <Text layoutX="62.0" layoutY="683.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Code" wrappingWidth="76.44343248928601">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Text>
+      <TextField layoutX="80.0" layoutY="689.0" prefHeight="25.0" prefWidth="300.0" promptText="Smol Number on the card" />
+      <TextField layoutX="446.0" layoutY="689.0" prefHeight="25.0" prefWidth="300.0" promptText="MM/YY" />
+      <Text layoutX="446.0" layoutY="682.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="62.0" layoutY="733.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip/Postal Code">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Text>
+      <TextField layoutX="80.0" layoutY="744.0" prefHeight="25.0" prefWidth="300.0" promptText="Zip/Postal Code" />
+      <Button layoutX="40.0" layoutY="32.0" mnemonicParsing="false" onAction="#goMenuScreen" prefHeight="26.0" prefWidth="57.0" text="Edit Order" />
+   </children>
+</AnchorPane>
